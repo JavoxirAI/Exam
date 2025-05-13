@@ -53,7 +53,10 @@ def incoming_messages():
         print("Xabarlar mavjud emas.")
         return
 
-    inbox = [row for row in messages[1:] if row[1] == teacher_email]
+    inbox = []
+    for row in messages[1:]:
+        if len(row) > 1 and row[1] == teacher_email:
+            inbox.append(row)
 
     if inbox:
         print("Sizga studentlardan yuborilgan xabarlar:")
